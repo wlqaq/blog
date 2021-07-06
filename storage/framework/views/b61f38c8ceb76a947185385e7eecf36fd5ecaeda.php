@@ -1,0 +1,1 @@
+<?php echo e($name); ?> hello world。<?php /**PATH D:\blog\resources\views/vendor/mail/html/test.blade.php ENDPATH**/ ?>
