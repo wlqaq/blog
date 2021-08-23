@@ -1,0 +1,10 @@
+{
+    "name": "PI",
+    "host": "106.54.91.156",
+    "protocol": "sftp",
+    "port": 22,
+    "username": "ubuntu",
+    "password": "Aa12345678",
+    "remotePath": "/www/wwwroot/",
+    "uploadOnSave": true
+}
