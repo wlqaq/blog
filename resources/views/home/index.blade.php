@@ -289,8 +289,7 @@
         <li><b>网站程序</b>：{{ENV('APP_NAME')}}{{app()::VERSION}}</li>
         <li><b>文章统计</b>：299条</li>
         <li><b>文章评论</b>：490条</li>
-        <li><b>统计数据</b>：<a href="info.html">百度统计</a></li>
-
+          <li><b>留言统计</b>:@{{}}</li>
       </ul>
     </div>
     <div class="links whitebg">

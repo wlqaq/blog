@@ -17,5 +17,7 @@ use Illuminate\Support\Facades\Route;
 //前台API控制器
 Route::namespace('App\Http\Controllers\Home')->group(function(){
   Route::get('/getmessage/{num}', 'Message@getAllMessage');
-  
+  Route::get('/getmesscount','Message@getmesscount'); //留言统计
 });
+
+

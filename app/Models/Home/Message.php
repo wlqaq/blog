@@ -13,9 +13,7 @@ class Message extends Model
     /**rutrun with name message*/
     public function getAllmessageByNum($num){
 
-        $all =  Message::offset($num)->limit($num*2)->orderBy('createtime')->get();
-
-
+        $all =  Message::offset($num)->limit($num*2)->orderBy('createtime','desc')->get();
         foreach($all as $k => $v){
              $all[$k]['name'] = $v->homeuser->name;
              //unset($all[$k]['homeuser']);

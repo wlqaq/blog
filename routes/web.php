@@ -13,9 +13,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //首页
+Route::get('/getinfo',function(){
+    Redis::set('aaa','1111');
+    echo Redis::get('aaa');
+});
+Route::get('/getinfo1',function(){
+     $redis = new Redis();
+     $redis->connect('127.0.0.1', 6379);
+     if($redis->ttl('aaa') == -2){
+         echo "过期";
+     };
+       echo "Connection to server successfully<br/>";
+             //查看服务是否运行
+       echo "Server is running: " . $redis->ping();
+});
 Route::get('/getsession', "App\Http\Controllers\Home\LoginController@getsession"); //gethomeuser
 Route::get('/', 'App\Http\Controllers\Home\IndexController@index')->middleware(['getBlogAll']);
 Route::get('/message', 'App\Http\Controllers\Home\IndexController@message')->middleware(['getBlogAll']);
+Route::get('/about','App\Http\Controllers\Home\IndexController@about')->middleware(['getBlogAll']);
 //前台登录
 Route::post('upload','App\Http\Controllers\UploadImg@index');
 Route::namespace('App\Http\Controllers\Home')->group(function(){
@@ -23,6 +38,7 @@ Route::namespace('App\Http\Controllers\Home')->group(function(){
     Route::post('/home/code','myCenter@checkCode');//验证码验证
     Route::get('/home/mycenter','myCenter@index')->middleware(['getBlogAll']);//个人中心
     Route::post('/message','myCenter@send');//留言
+
 });
 Route::namespace('App\Models\Home')->group(function (){
    Route::get('/label','label@getAllLabel');

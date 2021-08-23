@@ -84,9 +84,14 @@
                             <i class="iconfont nav_right">&#xe697;</i></a>
                         <ul class="sub-menu">
                             <li>
-                                <a onclick="xadmin.add_tab('图标对应字体','unicode.html')">
+                                <a onclick="xadmin.add_tab('LOGO','unicode.html')">
                                     <i class="iconfont">&#xe6a7;</i>
-                                    <cite>图标对应字体</cite></a>
+                                    <cite>LOGO</cite></a>
+                            </li>
+                            <li>
+                                <a onclick="xadmin.add_tab('页脚','unicode.html')">
+                                    <i class="iconfont">&#xe6a7;</i>
+                                    <cite>脚</cite></a>
                             </li>
                         </ul>
                     </li>

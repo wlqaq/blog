@@ -289,15 +289,14 @@
         <li><b>网站程序</b>：<?php echo e(ENV('APP_NAME')); ?><?php echo e(app()::VERSION); ?></li>
         <li><b>文章统计</b>：299条</li>
         <li><b>文章评论</b>：490条</li>
-        <li><b>统计数据</b>：<a href="info.html">百度统计</a></li>
-
+          <li><b>留言统计</b>:{{}}</li>
       </ul>
     </div>
     <div class="links whitebg">
       <h2 class="htitle"><span class="sqlink"><a href="info.html">申请链接</a></span>友情链接</h2>
       <ul>
           <?php $__currentLoopData = $tags; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tag): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-        <li><a href="<?php echo e($tag->url); ?>" title="<?php echo e($tag->tip); ?>" target="_blank"><?php echo e($tag->title); ?></a></li>
+        <li><a href="{{$tag->url}}" title="<?php echo e($tag->tip); ?>" target="_blank"><?php echo e($tag->title); ?></a></li>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
       </ul>
     </div>

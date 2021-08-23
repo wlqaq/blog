@@ -30,8 +30,8 @@ class myCenter extends Controller
         $data = \request()->all();
         //\dd($data);
         $mail = new MailController();
-        //$code = $mail->send($data['email']);//发送邮箱验证码
-        $code = '111111';//发送邮箱验证码
+        $code = $mail->send($data['email']);//发送邮箱验证码
+       // $code = '111111';//发送邮箱验证码
         //\dd(date('Y-m-d h:i:s'));
         try{
             $res = DB::table('temp_mail_time')->insert(['code'=>$code,'email'=>$data['email'],'datatime'=>date('Y-m-d h:i:s')]);
@@ -52,7 +52,6 @@ class myCenter extends Controller
         if(empty($data['email'])){
             return 3;
         }
-
         $uid = HomeUser::getIdByEmail($data['email']);
         $res = DB::table('message')->insert([
             'uid'=>$uid,
@@ -60,6 +59,9 @@ class myCenter extends Controller
             'content'=>$data['msg']
             ]);
         return $this->ifsuccessMessage($res,"留言成功","留言失败");
+    }
+    public function about(){
+        return view('home.about');
     }
 
 }

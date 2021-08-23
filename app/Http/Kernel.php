@@ -62,14 +62,14 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'isLogin'=>\App\Http\Middleware\isLogin::class,
+        'isLogin'=>\App\Http\Middleware\IsLogin::class,
         'hasroute' => \App\Http\Middleware\HasRoute::class,
         'getBlogAll' => \App\Http\Middleware\getBlogAll::class,
 
 
     ];
     protected $middlewarePriority = [
-        'isLogin'=>\App\Http\Middleware\isLogin::class,
+        'isLogin'=>\App\Http\Middleware\IsLogin::class,
         'hasroute' => \App\Http\Middleware\HasRoute::class,
     ];
 }

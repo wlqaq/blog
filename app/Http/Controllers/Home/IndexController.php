@@ -15,7 +15,10 @@ class IndexController extends Controller
 	}
     //留言板
     public function message(){
-
         return \view('home.message');
+    }
+    //关于
+    public function about(){
+	    return \view('home.about');
     }
 }

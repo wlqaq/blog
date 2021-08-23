@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 
 class getBlogAll
@@ -18,11 +19,17 @@ class getBlogAll
     public function handle(Request $request, Closure $next)
     {
         //获取博客信息
-        $blogall = DB::table('blogall')->where('name','=','niee')->first();
+        if (!Cache::has("bloginfo")){
+            $blogall = DB::table('blogall')->where('name','=','niee')->first();
+            $blogall = serialize($blogall);
+            Cache::add('bloginfo',$blogall);
+        }
+
         view()->composer(
            '*',
             function ($view){
-                $blogall = DB::table('blogall')->where('name','=','niee')->first();
+                //dd(unserialize(Cache::get('bloginfo')));
+                $blogall = unserialize(Cache::get('bloginfo'));
                 $view->with('blogall',$blogall);
             }
         );

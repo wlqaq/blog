@@ -37,7 +37,7 @@
           <span></span></li>
         <li><a href="/home/mycenter">个人中心</a></li>
         <li><a href="/message">留言板</a></li>
-        <li><a href="about.html">关于我</a></li>
+        <li><a href="/about">关于我</a></li>
       </ul>
     </nav>
 
@@ -59,16 +59,14 @@
   <div class="searchclose"></div>
 
 </div>
-<div class="loginbox">
-  <div class="login">
+<div class="loginbox" style="background-image: url('{{asset('/admin/images/loginbg.png')}}');background-size: 100% 100%;background-repeat: no-repeat;">
+  <div class="login" >
     <h3 style="text-align: center;">登录</h3>
-    <form action="/login" method="post" name="loginform" id="loginform">
-
-      <input name="email"  class="logininput" placeholder="请输入邮箱" style="color: rgb(153, 153, 153);" type="text">
+    <form action="/login"  method="post" name="loginform" id="loginform" >
+      <input name="email"   class="logininput" placeholder="请输入邮箱" style="color: rgb(153, 153, 153);" type="text">
        <input name="passwd"  placeholder="请输入密码" class="logininput" style="color: rgb(153, 153, 153);" type="text">
-      <button type="button" id='login' value="登录" >登录</button>
+      <button  type="button" id='login' value="登录" >登录</button>
       <button  type="button" id='login' value="注册">注册</button>
-
     </form>
     <div id="error" style="color: #F1B0B7;"></div>
   </div>
@@ -77,7 +75,7 @@
 </div>
 <script type="text/javascript">
     $(document).ready(function(){
-        
+
 
     $('#login').on('click',function(){
 

@@ -122,8 +122,7 @@
           </div>
           <hr>
           <div class="addmessage">
-
-                <button class="addmessagebtn" type="button" @click="addmessage()">更多</button>
+                <button class="addmessagebtn" style="width: 100%;background-color: #E2E3E5;height: 38px" type="button" @click="addmessage()">更多</button>
           </div>
 
 
@@ -141,6 +140,7 @@
                 // uid:1,
                 // name:'niee'
              ],
+
              num:3,
              hasmany:false,
              islogin:'<?php echo e(session()->get('homeuser')); ?>'
@@ -195,8 +195,6 @@
                           ]
                   editor.config.height = width
                   editor.create()
-
-
                   // 第一步，初始化 textarea 的值
                   $text1.val(editor.txt.html())
               },
@@ -204,14 +202,11 @@
                   axios.get('/getsession').then(res=>{
                      this.islogin = res.data
                   })
-
                   if(this.islogin == ""){
                       $(".loginico").click()
                       return false;
                   }
                    var _this = this;
-
-
                    axios.post('/message',{
                        msg:_this.msg,
                        _token:'<?php echo e(csrf_token()); ?>',
